@@ -1,0 +1,10 @@
+write-ack 0 miss 3
+read-ack 0 hit 1 FF11
+write-ack 1 miss 3
+write-ack 1 hit 1
+read-ack 1 hit 1 2211
+read-ack 1 hit 1 4422
+read-ack 0 hit 1 FF11
+write-ack 0 miss 5
+read-ack 0 miss 5 FF11
+read-ack 0 miss 3 1234

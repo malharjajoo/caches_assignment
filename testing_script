@@ -1,0 +1,38 @@
+#!/bin/bash
+printf "Enter Input directory AND Output Directory Names separated by a space\n
+The directories must be created before running this test.\n\n"
+read Input_Directory Output_Directory
+
+printf "Enter files in order \n\n-
+1) input_file ( This file should be present in your Input Directory),
+\n2)Your Output file ( This file will be created in your Output Directory),
+\n3) Output reference file ( this File should be in your input Directory),
+\n4)Output difference file( This file will be created in your Output Directory),
+\n5)Coloumn file ( This file will be created in your Output Directory)
+\n ( No need to enter the executable) \n "
+
+read Input_file
+read Output_file
+read Ref_file
+read Diff_file
+read Coloumn_file
+echo "Enter the 8 config bits"
+read a b c d e f g h
+
+#Now we have all the info
+cat ${Input_Directory}/${Input_file} | ./test.exe ${a} ${b} ${c} ${d} ${e} ${f} ${g} ${h} > ${Output_Directory}/${Output_file} 
+
+touch ${Input_Directory}/No_comment_Ref_file  
+touch ${Input_Directory}/No_comment_Input_file   
+
+#Need to remove commments  and put into the files createed above.
+sed -r "/#.*/d" ${Input_Directory}/${Ref_file} > ${Input_Directory}/No_comment_Ref_file
+sed -r "/#.*/d" ${Input_Directory}/${Input_file} > ${Input_Directory}/No_comment_Input_file
+
+# arrange the output and the reference file alongside each other to compare more clearly.
+pr -m -t  ${Output_Directory}/${Output_file} ${Input_Directory}/No_comment_Ref_file > ${Output_Directory}/${Coloumn_file} 
+
+# Check if output is different from reference input.
+diff ${Output_Directory}/${Output_file} ${Input_Directory}/No_comment_Ref_file > ${Output_Directory}/${Diff_file}
+
+printf "\nScript Finished ! Check the Output Folder " 

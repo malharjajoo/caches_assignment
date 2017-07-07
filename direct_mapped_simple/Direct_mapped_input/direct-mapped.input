@@ -1,0 +1,10 @@
+# 4 bit addresses
+# 1 Bytes/word, 1 words/block, 1 block/set, 1 sets/cache
+# 1 cycle/hit, 2 cycles/read, 4 cycles/write
+write-req 1 FF
+read-req 0 
+write-req 4 22
+write-req 4 11
+flush-req
+read-req 4
+flush-req

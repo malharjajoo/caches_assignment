@@ -1,0 +1,21 @@
+read-ack 0 miss 3 0000000000000000
+write-ack 2 miss 3
+write-ack 0 miss 3
+read-ack 0 hit 1 0000000000000000
+write-ack 1 miss 3
+write-ack 0 miss 3
+write-ack 0 miss 3
+write-ack 0 miss 3
+read-ack 0 hit 1 1111111111111111
+read-ack 0 miss 3 0000000000000000
+write-ack 0 hit 1
+write-ack 0 miss 3
+write-ack 0 miss 3
+write-ack 0 miss 7
+read-ack 0 hit 1 1515151515151515
+read-ack 0 miss 7 2222222222222222
+flush-ack 32
+read-ack 0 miss 3 7777777777777777
+write-ack 2 miss 3
+flush-ack 4
+flush-ack 0

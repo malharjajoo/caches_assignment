@@ -1,0 +1,44 @@
+# This is n-way cache
+# 12 8 4 8 4 2 1 2 - Config parameters
+# NOTE - The last 3 config parameters are 
+# (tags,LRU) for each- (0,1 ) ,(22,1) , (23,1) , (23,1+1)( to get word = 0,in block 1 ) , (16,1) , (1,1) , (2,1)
+
+read-req 0 
+# 1 - (0,1 )
+write-req 2904 AAAAAAAAFFFFFFFF
+# 2 - (22,1)
+write-req 2952 ABCDEF1234ABCDEF
+# 3 - (23,1)
+read-req 2944
+# 4 - (23,1+1)( to get word = 0,in block 1 )
+write-req 2088 DDDDDDDDEEEEEEEE
+# 5 - (16,1)
+write-req 152 1111111111111111
+# 6 - (1,1)
+write-req 256 2222222222222222
+# 7 - (2,1)
+write-req 912 7777777777777777
+# 8 - (7,1)
+read-req 152
+# 9 - (1,1+1)
+read-req 408
+# 10 - (3,1)
+write-req 24 3030303030303030
+# 11 - (0,1+1 )
+write-req 536 4444444444444444
+# 12 - (4,1) 
+write-req 640 5555555555555555
+# 13 - (5,1) 
+write-req 1920 1515151515151515
+# 14 - (15,1)
+read-req 1920 
+# 15 - (15,2)
+read-req 256
+flush-req
+read-req 912
+write-req 13760 1071071071071071
+flush-req
+flush-req
+
+ 
+

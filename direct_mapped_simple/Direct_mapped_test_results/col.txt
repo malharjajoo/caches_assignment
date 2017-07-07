@@ -1,0 +1,7 @@
+write-ack 0 miss 1		    write-ack 0 miss 1
+read-ack 0 miss 7 00		    read-ack 0 miss 7 00
+write-ack 0 miss 1		    write-ack 0 miss 1
+write-ack 0 hit 1		    write-ack 0 hit 1
+flush-ack 4			    flush-ack 4
+read-ack 0 hit 1 11		    read-ack 0 hit 1 11
+flush-ack 0			    flush-ack 0

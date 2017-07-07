@@ -1,0 +1,7 @@
+write-req 1 FF
+read-req 0 
+write-req 4 22
+write-req 4 11
+flush-req
+read-req 4
+flush-req
