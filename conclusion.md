@@ -9,6 +9,8 @@
       - Each blocks is a struct containing a vector of words and other fields like tag bits and valid bit.
       - Finally,each word is a vector of bytes.
       - the sizes of all of these dynamic structures is determined using the configuration input at runtime.
+      
+- The logic used for Handling the input requests is explained as comments in the code.
   
 # Debugging - 
 
